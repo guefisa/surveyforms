@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuestas</title>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="scripts/angularApp.js"></script>
+</head>
+
+<body>
+
+    <div ng-app="apiApp" ng-controller="apiAppCtrl as vm">
+        <div class="w3-container w3-blue-grey w3-text-white">
+            <h1>Cuestionario</h1>
+        </div>
+
+        <div class="section" ng-repeat="pregunta in vm.preguntas" ng-show="vm.mostrar($first, pregunta)">
+            <h3 class="w3-text-grey">{{$index + 1}}. {{pregunta.texto}}</h3>
+
+            <ul class="w3-container">
+                <li ng-repeat="opcion in pregunta.opciones">
+                    <label>
+                        <input type="radio" name="{{pregunta.codigo}}" value="{{opcion.valor}}" ng-checked="opcion.pk == pregunta.respuestas[0].opcion" ng-click="vm.click(pregunta.respuestas[0], opcion.pk)" class="w3-radio"/>
+                        {{opcion.texto}}
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
