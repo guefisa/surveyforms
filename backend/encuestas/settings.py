@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     # App con el modelo de datos y las vistas para el cuestionario de preguntas de la aplicación de encuestas
     'cuestionario',
+    'muestra',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -139,3 +140,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Django CORS 
 # Permitimos peticiones desde cualquier dominio durante la fase develop
 CORS_ORIGIN_ALLOW_ALL = True
+
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10
+}

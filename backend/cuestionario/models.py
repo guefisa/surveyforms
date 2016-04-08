@@ -33,7 +33,7 @@ class Opcion(models.Model):
 
 
 class Respuesta(models.Model):
-    pregunta = models.ForeignKey(Pregunta, unique=True, related_name='respuestas')
+    pregunta = models.ForeignKey(Pregunta, related_name='respuestas')
     opcion = models.ForeignKey(Opcion)
 
     class Meta:
